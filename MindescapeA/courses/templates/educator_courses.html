@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Creation</title>
+    <!-- Include Quill.js library -->
+    <!-- need to use JavaScript libraries or plugins specifically designed for rich text editing. One popular library for this purpose is called Quill.js. -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <style>
+        /* Custom CSS */
+.course-creation-section {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center content horizontally */
+    padding: 50px 0; /* Add padding for spacing */
+}
+
+.container1 {
+    text-align: center; /* Center align text */
+    background-color: #cabcdf; /* Background color */
+    padding: 20px; /* Add padding */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+    margin-bottom: 20px; /* Add space below container1 */
+}
+
+.container1 h2 {
+    font-size: 50px; /* Set font size to 45px */
+    font-weight: bold; /* Make text bold */
+    margin: 0; /* Remove default margin */
+}
+
+.container2 {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center content horizontally */
+    width: 100%; /* Set width to 100% */
+    max-width: 800px; /* Set maximum width for container2 */
+}
+
+.container2 form {
+    width: 100%; /* Set form width to 100% */
+    max-width: 600px; /* Set maximum width for form */
+    background-color: #fff; /* White background color for form */
+    padding: 30px; /* Add padding to form */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.container2 label {
+    display: block; /* Display labels in block mode */
+    margin-bottom: 10px; /* Add space below labels */
+    font-weight: bold; /* Bold font weight for labels */
+}
+
+.container2 input[type="text"],
+.container2 textarea,
+.container2 select {
+    width: 100%; /* Make form elements full width */
+    padding: 10px; /* Add padding */
+    margin-bottom: 20px; /* Add space below form elements */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+.container2 input[type="file"] {
+    width: 100%; /* Make file input full width */
+    margin-bottom: 20px; /* Add space below file input */
+}
+
+.container2 button[type="submit"] {
+    width: 100%; /* Make submit button full width */
+    background-color: #cabcdf; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 12px 24px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add border radius */
+    cursor: pointer; /* Add pointer cursor */
+    font-size: 18px; /* Font size */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+.container2 button[type="submit"]:hover {
+    background-color: #cabcdf; /* Darker background color on hover */
+}
+
+    </style>
+</head>
+<body>
+    <!-- Course creation form -->
+    <!-- Course creation form -->
+<section class="course-creation-section">
+    <div class="container1">
+        <h2>Create a New Course</h2>
+    </div>
+    <div class="container2">
+        <form action="{% url 'educator_courses' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title">
+            
+            <label for="description">Description:</label>  <!-- Add this field for course description -->
+            <!-- Replace the input field with textarea -->
+            <textarea id="description" name="description" style="display: none;"></textarea>
+            <!-- Add a div to hold the Quill editor -->
+            <div id="editor-container" style="height: 200px;"></div>
+            
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty" name="difficulty">
+                <option value="1">Easy</option>
+                <option value="2">Medium</option>
+                <option value="3">Hard</option>
+            </select><br><br>
+            
+            <label for="picture">Course Picture:</label><br>
+            <input type="file" id="picture" name="picture" accept="image/*" required><br><br>
+            
+            <label for="material">Course Material:</label><br>
+            <input type="file" id="material" name="material" multiple required><br><br>
+            
+            <button type="submit">Create Course</button>
+        </form>
+    </div>
+</section>
+
+
+<!-- JavaScript code -->
+<script>
+    // Initialize Quill.js on the editor container
+    var quill = new Quill('#editor-container', {
+        theme: 'snow' // Specify theme, 'snow' is one of the built-in themes
+    });
+
+    // Listen for form submission
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Get Quill's HTML content
+            var descriptionHtml = document.querySelector('.ql-editor').innerHTML;
+
+            // Create a temporary div element to extract text content
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = descriptionHtml;
+
+            // Get the plain text content from the temporary div
+            var descriptionPlainText = tempDiv.textContent || tempDiv.innerText;
+
+            // Set the plain text content to the hidden input field
+            var descriptionTextArea = document.querySelector('textarea[name="description"]');
+            descriptionTextArea.value = descriptionPlainText.trim();
+        });
+    });
+</script>
+
+
+
+
+
+</body>
+</html>

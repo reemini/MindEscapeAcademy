@@ -1,0 +1,152 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Head content here -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <script data-domain="a.picoapps.xyz" defer="" src="https://plausible.io/js/script.outbound-links.js"></script></head>
+
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Header content here -->
+        <!-- header start -->
+        <header class="bg-white px-6 py-4 shadow">
+            <div class="flex justify-between">
+            <div class="flex space-x-7">
+            <div>
+            <!-- Website Logo -->
+            <a class="flex items-center py-4 px-2" href="#">
+            <span class="font-semibold text-gray-500 text-lg">Mindscape Academy</span>
+            </a>
+            </div>
+            <!-- Primary Navbar items -->
+            <div class="hidden md:flex items-center space-x-1">
+            <a class="py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300" href="">Home</a>
+            <a class="py-4 px-2 text-gray-500 font-semibold hover:text-purple-500 transition duration-300" href="">Courses</a>
+            </div>
+            </div>
+            <!-- Secondary Navbar items -->
+            <div class="hidden md:flex items-center space-x-3">
+            <a class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-purple-500 hover:text-white transition duration-300" href="">Sign Up</a>
+            <a class="py-2 px-2 font-medium text-white bg-purple-500 rounded hover:bg-purple-400 transition duration-300" href="">Profile</a>
+            </div>
+            <!-- Mobile menu button -->
+            <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+            <svg class="w-6 h-6 text-gray-500 hover:text-purple-500" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" x-show="!showMenu">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            </button>
+            </div>
+            </div>
+        </header>
+        <!-- header end -->
+
+        
+    <!-- main wrapper start -->
+<div class="main-wrapper">
+    <!-- Banner section -->
+        <!-- Banner content here -->
+        <section class="banner-section d-flex align-items-center">
+            <div class="bg-white p-8">
+                <div class="container mx-auto">
+                <div class="flex justify-between">
+                <div class="w-full md:w-1/2">
+                <h1 class="text-5xl font-bold mt-0 mb-6">Best Online Platform For Learning</h1>
+                <p class="text-gray-600 mb-8">
+                          Learning is "a process that leads to change, which occurs as a result of experience and increases the potential for improved performance and future learning."
+                        </p>
+                <button class="bg-purple-500 text-white px-4 py-2 rounded font-medium hover:bg-purple-400 transition duration-300">Get Started!</button>
+                </div>
+                <div class="hidden md:block w-1/2">
+                    <img src="{% static 'image/hhh.png' %}" class="banner img">
+                </div>
+                </div>
+                </div>
+                </div>
+        </section>
+         <!-- banner section end -->
+    <!-- top 10 Courses section -->
+    <section class="mt-10" id="courses-section">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-6">Courses</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                {% for course in latest_courses %}
+                <div class="bg-white p-6 rounded-lg shadow-lg relative">
+                    <div class="col-md-4">
+                        <div class="course-container">
+                            {% if course.picture %}
+                            <img src="{{ course.picture.url }}" alt="{{ course.title }}" class="w-full h-48 object-cover mb-4">
+                            {% else %}
+                            <p>No picture available</p>
+                            {% endif %}
+
+                            <h3 class="text-xl font-semibold mb-2">{{ course.title }}</h3>
+                            <p class="text-gray-600 text-sm">Difficulty: {{ course.get_difficulty_display }}</p>
+                            <button class="bg-purple-500 text-white px-3 py-1 rounded font-medium hover:bg-purple-400 transition duration-300"><a href="{% url 'course_detail' course.id %}">Enroll</a></button>
+                            <!-- Favorite icon -->
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-purple-500" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- top 10 Course section end-->
+
+
+        <!-- Top 3 courses section -->
+    <!-- <section class="top-courses-section">
+        <div class="container">
+            <div class="row">
+                Iterate over top_courses to display top 3 courses 
+                {% for course in top_courses %}
+                <div class="col-md-4">
+                    <div class="course-container">
+                        <img src="{{ course.image }}" alt="{{ course.title }}">
+                        <h3>{{ course.title }}</h3>
+                        <p>{{ course.students_enrolled }} students enrolled</p>
+                        <p>Rating: {{ course.rating }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section> -->
+</div>
+<!-- Footer -->
+<footer class="bg-white text-center text-gray-600 py-4 shadow">
+    © 2023 Mindscape Academy
+  </footer>
+<!-- main wrapper end -->
+
+
+    <!-- JavaScript code -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Function to toggle course favorite state
+        function toggleFavorite(element) {
+          const icon = element.querySelector('i');
+          const isFavorited = icon.classList.contains('fas');
+          if (isFavorited) {
+            // Remove from favorites
+            icon.classList.remove('fas');
+            icon.classList.add('far');
+          } else {
+            // Add to favorites
+            icon.classList.remove('far');
+            icon.classList.add('fas');
+          }
+          // Update local storage (Consider implementation based on course ID or similar)
+        }
+      </script>
+</body>
+</html>
