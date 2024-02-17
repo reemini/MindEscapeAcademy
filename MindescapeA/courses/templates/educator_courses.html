@@ -10,26 +10,14 @@
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <style>
         /* Custom CSS */
+body{
+    background-color: rgb(224, 230, 240);
+}
 .course-creation-section {
     display: flex; /* Use flexbox layout */
     flex-direction: column; /* Arrange items vertically */
     align-items: center; /* Center content horizontally */
-    padding: 50px 0; /* Add padding for spacing */
-}
-
-.container1 {
-    text-align: center; /* Center align text */
-    background-color: #cabcdf; /* Background color */
-    padding: 20px; /* Add padding */
-    border-radius: 5px; /* Add border radius */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add shadow */
-    margin-bottom: 20px; /* Add space below container1 */
-}
-
-.container1 h2 {
-    font-size: 50px; /* Set font size to 45px */
-    font-weight: bold; /* Make text bold */
-    margin: 0; /* Remove default margin */
+    padding: 50px 0px; /* Add padding for spacing */
 }
 
 .container2 {
@@ -37,21 +25,22 @@
     flex-direction: column; /* Arrange items vertically */
     align-items: center; /* Center content horizontally */
     width: 100%; /* Set width to 100% */
-    max-width: 800px; /* Set maximum width for container2 */
+    max-width: 900px; /* Set maximum width for container2 */
 }
 
 .container2 form {
     width: 100%; /* Set form width to 100% */
-    max-width: 600px; /* Set maximum width for form */
-    background-color: #fff; /* White background color for form */
+    max-width: 900px; /* Set maximum width for form */
+    background-color: rgb(221, 228, 238); /* White background color for form */
     padding: 30px; /* Add padding to form */
     border-radius: 10px; /* Add border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
+    box-shadow: 0 0 500px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 .container2 label {
     display: block; /* Display labels in block mode */
     margin-bottom: 10px; /* Add space below labels */
+    padding :15px;
     font-weight: bold; /* Bold font weight for labels */
 }
 
@@ -67,12 +56,13 @@
 
 .container2 input[type="file"] {
     width: 100%; /* Make file input full width */
-    margin-bottom: 20px; /* Add space below file input */
+    margin-bottom: 5px; /* Add space below file input */
+    padding: 15px; /* Increase padding */
 }
 
 .container2 button[type="submit"] {
     width: 100%; /* Make submit button full width */
-    background-color: #cabcdf; /* Button background color */
+    background-color: rgb(255, 183, 0); /* Button background color */
     color: #fff; /* Button text color */
     padding: 12px 24px; /* Add padding */
     border: none; /* Remove border */
@@ -92,9 +82,7 @@
     <!-- Course creation form -->
     <!-- Course creation form -->
 <section class="course-creation-section">
-    <div class="container1">
-        <h2>Create a New Course</h2>
-    </div>
+    <h2 class="text-3xl font-bold " style="background-image: url(https://odoocdn.com/openerp_website/static/src/img/graphics/underline.svg); background-repeat:no-repeat; background-size:90% ;  font-size: 50px; padding-left: 39px; background-position: center; text-align: center;">Create a New Course</h2>
     <div class="container2">
         <form action="{% url 'educator_courses' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}

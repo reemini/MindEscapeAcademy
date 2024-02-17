@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('educator_courses/', views.educator_courses, name='educator_courses'),
     path('courses/<int:course_id>/', views.course_detail, name='course_detail'),
+    path('generated_course/', views.generated_course, name='generated_course'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
