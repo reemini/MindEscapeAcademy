@@ -1,0 +1,97 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.course-info {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #333;
+}
+
+p, strong, .link {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Additional styles */
+.rating {
+    color: #ffbf00; /* Yellow color for rating */
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.link {
+    text-decoration: none; /* Remove default underline */
+    color: #0077b5; /* LinkedIn icon color */
+}
+
+.link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.course-image {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add a shadow effect */
+}
+
+/* Box for "What Will You Get?" section */
+.what-you-get {
+    background-color: #e0f7fa; /* Light blue background color */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Box for course details section */
+.course-details {
+    background-color: #ffd54f; /* Yellow background color */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* Box for skills section */
+.skills {
+    background-color: #c8e6c9; /* Light green background color */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
