@@ -1,75 +1,80 @@
 {% block content %}
 {% load static %}
 
-<title>Login page</title>
-
-<link rel="stylesheet" href="{% static 'page/css/login style.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-<div class="container">
-  <div class="container__left">
-    <h2>WELCOME BACK !</h2>
-    <p>
-      Elevate your learning journey with innovative techniques
-      revolutionizing your educational experience.
-    </p>
-    <img class="candy" src="{% static 'images/above.png' %}" alt="sweet" />
-
-    <img src="{% static 'images/login.png' %}" alt="this is the login page" />
-  </div>
-  <div class="container__right">
-    <div class="content">
-      <img class="logo-remove" src="{% static 'images/logo-remove.png' %}" alt="logo" />
-      <p class="header">Login Form</p>
-      <form>
-        <div class="input__group">
-          <input type="text" />
-          <label for="username">Username or Email</label>
-        </div>
-        <div class="input__group">
-          <input type="password" id="passwordInput" />
-          <label for="password">Password</label>
-          <i id="togglePasswordIcon" class="fas fa-eye-slash" onclick="togglePasswordVisibility()"></i>
-        </div>        
-        <div class="input__group">
-          <div class="remember-me">
-            <input type="checkbox" id="rememberMeCheckbox">
-            <label for="rememberMeCheckbox">Remember me</label>
-          </div>
-          <div class="spacer"></div> <!-- Spacer for alignment -->
-          <p class="forgot-password"><a href="#">Forgot password?</a></p>
-        </div>                
-        <button>Sign In</button>
-      </form>
-      <div class="divider">
-        <span>or</span>
-      </div>
-      <div class="google__login">
-        <img src="{% static 'images/search.png' %}" alt="google" />
-        <span>Sign in with Google</span>
-      </div>
-      <p class="create__account">
-        Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login page</title>
+  <link rel="stylesheet" href="{% static 'page/css/login style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="container__left">
+      <h2>WELCOME BACK !</h2>
+      <p>
+        Elevate your learning journey with innovative techniques
+        revolutionizing your educational experience.
       </p>
+      <img class="candy" src="{% static 'images/above.png' %}" alt="sweet" />
+      <img src="{% static 'images/login.png' %}" alt="this is the login page" />
+    </div>
+    <div class="container__right">
+      <div class="content">
+        <img class="logo-remove" src="{% static 'images/logo-remove.png' %}" alt="logo" />
+        <p class="header">Login Form</p>
+        <form>
+          <div class="input__group">
+            <input type="text" required /> <!-- Add 'required' attribute here -->
+            <label for="username">Username or Email</label>
+          </div>
+          <div class="input__group">
+            <input type="password" id="passwordInput" required /> <!-- Add 'required' attribute here -->
+            <label for="password">Password</label>
+            <i id="togglePasswordIcon" class="fas fa-eye-slash" onclick="togglePasswordVisibility()"></i>
+          </div>        
+          <div class="input__group">
+            <div class="remember-me">
+              <input type="checkbox" id="rememberMeCheckbox">
+              <label for="rememberMeCheckbox">Remember me</label>
+            </div>
+            <div class="spacer"></div> <!-- Spacer for alignment -->
+            <p class="forgot-password"><a href="#">Forgot password?</a></p>
+          </div>                
+          <button>Sign In</button>
+        </form>
+        <div class="divider">
+          <span>or</span>
+        </div>
+        <div class="google__login">
+          <img src="{% static 'images/search.png' %}" alt="google" />
+          <span>Sign in with Google</span>
+        </div>
+        <p class="create__account">
+          Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+        </p>
+      </div>
     </div>
   </div>
-</div>
-<script>
-  function togglePasswordVisibility() {
-  var passwordInput = document.getElementById("passwordInput");
-  var togglePasswordIcon = document.getElementById("togglePasswordIcon");
+  <script>
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("passwordInput");
+      var togglePasswordIcon = document.getElementById("togglePasswordIcon");
 
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    togglePasswordIcon.classList.remove("fa-eye-slash");
-    togglePasswordIcon.classList.add("fa-eye");
-  } else {
-    passwordInput.type = "password";
-    togglePasswordIcon.classList.remove("fa-eye");
-    togglePasswordIcon.classList.add("fa-eye-slash");
-  }
-}
-
-</script>
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        togglePasswordIcon.classList.remove("fa-eye-slash");
+        togglePasswordIcon.classList.add("fa-eye");
+      } else {
+        passwordInput.type = "password";
+        togglePasswordIcon.classList.remove("fa-eye");
+        togglePasswordIcon.classList.add("fa-eye-slash");
+      }
+    }
+  </script>
+</body>
+</html>
 
 {% endblock %}
