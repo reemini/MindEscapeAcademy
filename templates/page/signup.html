@@ -1,0 +1,113 @@
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'page/css/signup style.css' %}">
+<title>Registration</title>
+<div class="container">
+  <h2>Create an Account</h2>
+  <form action="#" id="signup-form">
+    <div class="form-group">
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required>
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" name="role" required>
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Parent">Parent</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="grade">Grade/Class Level</label>
+      <input type="text" id="grade" name="grade" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="institution">Institution/School</label>
+      <input type="text" id="institution" name="institution" required>
+    </div>
+    <div class="form-group">
+      <label for="subject">Subject of Study</label>
+      <input type="text" id="subject" name="subject" required>
+    </div>
+    <div class="form-group">
+      <label for="profile-pic">Profile Image</label>
+      <input type="file" id="profile-pic" name="profile-pic" accept="image/*">
+    </div>
+    <div class="checkbox-wrapper-65">
+      <label for="cbk1-65">
+        <input id="cbk1-65" type="checkbox">
+        <span class="cbx">
+          <svg viewBox="0 0 12 11" height="11px" width="12px">
+            <polyline points="1 6.29411765 4.5 10 11 1"></polyline>
+          </svg>
+        </span>
+        <span>I agree to the terms and conditions</span>
+      </label>
+    </div>
+    <button type="submit" id="signup-btn">Sign Up</button>
+  </form>
+  <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
+</div>
+
+
+<!-- Pop-up Message -->
+<div class="popup" id="popup-message">
+  <div class="popup-content">
+    <span class="close" id="close-popup">&times;</span>
+    <h3>POP-UP Message</h3>
+    <p>THANK YOU!<br>
+      We are Happy for having you here.<br>
+      We will review your account information and process your request to assign you for your role. We will notify you soon via email, Stay Tuned...</p>
+    <button id="ok-btn">Ok</button>
+  </div>
+</div>
+
+<script>
+// Get the sign-up form and sign-up button
+const signupForm = document.getElementById('signup-form');
+const signupButton = document.getElementById('signup-btn');
+
+// Get the pop-up message and close button
+const popup = document.getElementById('popup-message');
+const closePopup = document.getElementById('close-popup');
+
+// Function to show the pop-up message
+function showPopup() {
+  popup.style.display = 'block';
+}
+
+// Function to hide the pop-up message
+function hidePopup() {
+  popup.style.display = 'none';
+}
+
+// Event listener for sign-up button click
+signupButton.addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent form submission for demonstration purpose
+  showPopup();
+});
+
+// Event listener for close button click
+closePopup.addEventListener('click', function() {
+  hidePopup();
+});
+
+// Event listener for "Ok" button click to close the pop-up message
+document.getElementById('ok-btn').addEventListener('click', function() {
+  hidePopup();
+});
+</script>
+
+{% endblock %}
