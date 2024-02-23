@@ -40,7 +40,7 @@ body {
   max-width: 400px;
 }
 
-.container__left h2 {
+.container__left h1 {
   font-size: 1.75rem;
   font-weight: 500;
   color: var(--white);

@@ -1,23 +1,14 @@
 {% block content %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login page</title>
   <link rel="stylesheet" href="{% static 'page/css/login style.css' %}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
+
   <div class="container">
     <div class="container__left">
-      <h2>WELCOME BACK !</h2>
-      <p>
-        Elevate your learning journey with innovative techniques
-        revolutionizing your educational experience.
-      </p>
+      <h1>WELCOME BACK !</h1>
+      <blockquote></blockquote>
       <img class="candy" src="{% static 'images/above.png' %}" alt="sweet" />
       <img src="{% static 'images/login.png' %}" alt="this is the login page" />
     </div>
@@ -74,7 +65,6 @@
       }
     }
   </script>
-</body>
-</html>
+
 
 {% endblock %}
