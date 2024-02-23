@@ -99,6 +99,38 @@ form {
 .input__group {
   position: relative;
   margin: 1rem 0;
+  display: flex;
+}
+
+.input__group1{
+  position: relative;
+  margin: 0.5rem 0;
+  display: flex;
+  margin-top: 6px;
+  margin-left: 16px;
+}
+
+.forgot-password{
+  margin-top: -7px;
+}
+.forgot-password a {
+  color: rgb(161, 208, 224); /* Change color to match the "Remember me" color */
+}
+
+.remember-me {
+  display: flex;
+  margin-left: -15px;
+  margin-top: -37px;
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 5px; /* Adjust as needed */
+}
+.remember-me label {
+  color: rgb(161, 208, 224); /* Change color to match the "Forgot password?" color */
+}
+.spacer {
+  flex-grow: 1; /* Allow the spacer to grow and push "Forgot password?" to the right */
 }
 
 form label {
@@ -231,11 +263,6 @@ form button:hover {
 }
 
 /*...*/
-.input__group {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
 
 #togglePasswordIcon {
   position: absolute;
@@ -246,17 +273,4 @@ form button:hover {
   color: var(--primary-color);
 }
 
-.remember-me {
-  display: flex;
-  align-items: center;
-}
-
-.remember-me input[type="checkbox"] {
-  margin-right: 5px; /* Adjust as needed */
-}
-
-
-.spacer {
-  flex-grow: 1; /* Allow the spacer to grow and push "Forgot password?" to the right */
-}
 
