@@ -2,159 +2,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Head content here -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.3/dist/tailwind.min.css" rel="stylesheet"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <script data-domain="a.picoapps.xyz" defer="" src="https://plausible.io/js/script.outbound-links.js"></script></head>
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
 
+    <!-- custom link -->
+    <link rel="stylesheet" href="static/css/homeStyle.css">
+    <!-- owl carousel css -->
+    <!-- <link rel="stylesheet" href="css/owl.carousel.min.css"> -->
+    <!-- boxicons link -->
+    <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!-- font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- font aw icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    
-    <!-- Header content here -->
-        <!-- header start -->
-        
-        <!-- header end -->
+    <!-- start home-into section -->
+    <section class="home" id="home">
+       <div class="home-text">
+        <h6>He who visits Mindscape Academy most, learns best.</h6>
+        <h1>Best Online Platform <br> For E-Learning</h1>
+        <p>Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology, offering a dynamic learning environment enhanced by sophisticated multimodal interaction capabilities.</p>
+        <button class="btn-theme">Get started!</button>
+       </div> 
+       <div class="home-img">
+        <img src="{% static 'img/forh1.png' %}" alt="home-into-img"> 
+       </div> 
+       
+    </section>
+    <!-- end home-into section -->
 
-        
-    <!-- main wrapper start -->
-<div class="main-wrapper">
-    <!-- Banner section -->
-        <!-- Banner content here -->
-        <section class="banner-section d-flex align-items-center" >
-            <div class="bg-white p-10" style="background-color:rgb(232, 238, 247); border-radius: 30px;">
-                <div class="container mx-auto">
-                <div class="flex justify-between">
-                <div class="w-full md:w-1/2" style="margin: auto; padding-left: 5%;">
-                <h2 class="mb-3" style="font-size: 25.5px; font-weight: 500; color:rgb(255, 183, 0) ;">He who visits Mindscape Academy most, learns best.</h2>
-                <div style="">
-                <h1 class="text-5xl font-bold mt-0 mb-6 " style=" font-size: 45px; font-weight: 900; color:rgba(84, 55, 134, 1); background-image: url(https://odoocdn.com/openerp_website/static/src/img/highlights/yellow_highlight_bold_05.svg);background-repeat:no-repeat; background-size:62% ; ">Best Online Platform <br> For E-Learning</h1>
-                </div>
-                <p class="text-gray-600 mb-8" style="font-size: 20px; font-weight: 300;">
-Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology, offering a dynamic learning environment enhanced by sophisticated multimodal interaction capabilities. </p>
-                <button class="btn btn-theme" style="border-radius: 5px;">Get Started!</button>
-                </div>
-                <div class="hidden md:block w-1/2">
-                    <img src="{% static 'image/forh1.png' %}" class="banner img" style="max-width: 700px; margin: auto; padding-left: 5%; ">
-                </div>
-                </div>
-                </div>
-                </div>
-        </section>
-         <!-- banner section end -->
+    <!-- start about section -->
+    <setion class="about" id="about">
+        <div class="about-img">
+            <img src="{% static 'img/h2.jpg' %}" alt="about-img">
+            <!-- <video controls autoplay>
+                <source src="Online Education in 2021_ _ by Studyportals.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video> -->
+        </div>
+        <div class="about-text">
+            <h2>Who Are We?</h2>
+            <p>Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology, offering a dynamic learning environment enhanced by sophisticated multimodal interaction capabilities. <br> </p>
+           </div>
+    </setion>
 
-    <!-- Courses section -->
-    <h2 class="text-3xl font-bold " style="background-image: url(https://odoocdn.com/openerp_website/static/src/img/graphics/underline.svg); background-repeat:no-repeat; background-size:20% ; padding: 3%; font-size: 65px; padding-left: 39px; background-position: center; text-align: center;">Courses</h2>
-    <section class="mt-10" id="courses-section">
-        <div class="container mx-auto">
-            <div class="grid md:grid-cols-3 gap-6">
-                {% for course in latest_courses %}
-                <div class="bg-white p-6 rounded-lg shadow-lg relative">
-                    <div class="col-md-4">
-                        <div class="course-container">
-                            {% if course.picture %}
-                            <img src="{{ course.picture.url }}" alt="{{ course.title }}" class="w-full h-48 object-cover mb-4">
-                            {% else %}
-                            <p>No picture available</p>
-                            {% endif %}
-                            <div style="padding: 10px; text-align: center;">
-                                <h3 class="text-xl font-awesome mb-2" style="font-size: 35px; line-height: 100%;">{{ course.title }}</h3>
-                            </div>
-                            <div style="display: flex; justify-content: center; align-items: center;">
-                                <p class="text-gray-600" style="font-size: 16px; margin-right:230px;">Difficulty: {{ course.get_difficulty_display }}</p>
-                                <button class="btn btn-theme" style="border-radius: 5px;"><a href="{% url 'course_detail' course.id %}" style="color: white;">Enroll</a></button>
-                            </div>
-                            <!-- Favorite icon -->
-                            <button class="absolute top-2 right-2 text-gray-400 hover:text-purple-900" onclick="toggleFavorite(this)">
-                                <i class="far fa-heart"></i>
-                            </button>
-                        </div>
+    <!-- Freatures 1 section start -->
+    <section class="features1 section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 ">
+                    <div class="section-title">
+                        <h2>Awesome <span>Features</span></h2>
                     </div>
                 </div>
-                {% endfor %}
             </div>
-            <div class="overflow-x-auto mt-6">
-                <div class="flex space-x-4">
-                    {% for course in remaining_courses %}
-                    <div class="bg-white p-6 rounded-lg shadow-lg relative flex-none" style="min-width: 300px;">
-                        <div class="col-md-4">
-                            <div class="course-container">
-                                {% if course.picture %}
-                                <img src="{{ course.picture.url }}" alt="{{ course.title }}" class="w-full h-48 object-cover mb-4">
-                                {% else %}
-                                <p>No picture available</p>
-                                {% endif %}
-                                <div style="padding: 10px; text-align: center;">
-                                    <h3 class="text-xl font-awesome mb-2" style="font-size: 35px; line-height: 100%;">{{ course.title }}</h3>
-                                </div>
-                                <div style="display: flex; justify-content: center; align-items: center;">
-                                    <p class="text-gray-600" style="font-size: 16px; margin-right:230px;">Difficulty: {{ course.get_difficulty_display }}</p>
-                                    <button class="btn btn-theme" style="border-radius: 5px;"><a href="{% url 'course_detail' course.id %}" style="color: white;">Enroll</a></button>
-                                </div>
-                                <!-- Favorite icon -->
-                                <button class="absolute top-2 right-2 text-gray-400 hover:text-purple-900" onclick="toggleFavorite(this)">
-                                    <i class="far fa-heart"></i>
-                                </button>
-                            </div>
-                        </div>
+            <div class="row">
+                <div class="owl-carousel features-carousel">
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>Clean Code</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
                     </div>
-                    {% endfor %}
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>pixel perfect design</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>easy to use system</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>powerd by AI</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>powerd by AI</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>powerd by AI</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>powerd by AI</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <h3>powerd by AI</h3>
+                        <p>The website was developed by four female software engineers who dubbed themselves the Gang of Four 🎓✨</p>
+                    </div>
+
+                    
                 </div>
             </div>
         </div>
     </section>
-    
 
-    <!-- Course section end-->
+    <!-- top 3 courses section start -->
+    <section class="course">
+        <h2>Top <span>3</span> Courses</h2>
+        <p>Mindscape Academy offers a diverse range of courses tailored to expand your mind and skills. Here are the top three courses</p>
+        <div class="course-box">
+            <div class="courses">
+                <img src="{% static 'img/img1.jpeg' %}" alt="course-image">
+                <div class="details">
+                    <h3>Java Beginners Course </h3>
+                </div>
+                    <div class="more-details">
+                        <h6>210 Students</h6>
+                    <h6>13 Classes</h6>
+                    <h6><i class="fa-regular fa-star" style="color: #543786;"></i>9524</h6>
+                    </div>
+            </div>
 
-                     <!-- Top 3 courses section --> 
-  <!-- <section class="top-courses-section">
-    <div class="container">
-        <div class="row">
-            <h2 class="text-3xl font-bold mb-6">Top 10 Courses</h2>
-            Iterate over top_courses to display top 3 courses   
-            {% for course in top_courses %}
-            <div class="col-md-4">
-                <div class="course-container">
-                    <img src="{{ course.image }}" alt="{{ course.title }}">
-                    <h3>{{ course.title }}</h3>
-                    <p>{{ course.students_enrolled }} students enrolled</p>
-                    <p>Rating: {{ course.rating }}</p>
+            <div class="courses">
+                <img src="{% static 'img/img2.jpeg' %}" alt="course-image">
+                <div class="details">
+                    <h3>Java Beginners Course </h3>
+                </div>
+                    <div class="more-details">
+                        <h6>210 Students</h6>
+                    <h6>13 Classes</h6>
+                    <h6><i class="fa-regular fa-star" style="color: #543786;"></i>9524</h6>
+                    </div>
+            </div>
+
+            <div class="courses">
+                <img src="{% static 'img/img3.jpeg' %}" alt="course-image">
+                <div class="details">
+                    <h3>Java Beginners Course </h3>
+                </div>
+                <div class="more-details">
+                    <h6>210 Students</h6>
+                <h6>13 Classes</h6>
+                <h6><i class="fa-regular fa-star" style="color: #543786;"></i>9524</h6>
                 </div>
             </div>
-            {% endfor %}
         </div>
+    </section>
+    <!-- top 3 courses section end -->
+
+    <!-- start Project founders section -->
+    <section class="funders">
+      <h1 class="fiun-title">Our Founders</h1>
+      <p>The website was developed by four female software engineers who dubbed themselves the <samp>Gang of Four</samp>🎓✨</p>
+      <div class="expert-box">
+
+        <div class="profile">
+            <h2 class="foun-name">Reem</h2>
+            <h5 class="foun-major">Software Engineer</h5>
+            <p class="foun-job">UI/UX designer | Front-end Developer</p>
+            <div class="pro-links">
+                <i class="fa-brands fa-linkedin" style="color: #543786;"></i>
+            </div>
+        </div>
+
+        <div class="profile">
+            <h2 class="foun-name">Abeer</h2>
+            <h5 class="foun-major">Software Engineer</h5>
+            <p class="foun-job">UI/UX designer | Front-end Developer</p>
+            <div class="pro-links">
+                <i class="fa-brands fa-linkedin" style="color: #543786;"></i>
+            </div>
+        </div>
+
+        <div class="profile">
+            <h2 class="foun-name">Shatha</h2>
+            <h5 class="foun-major">Software Engineer</h5>
+            <p class="foun-job">UI/UX designer | Front-end Developer</p>
+            <div class="pro-links">
+                <i class="fa-brands fa-linkedin" style="color: #543786;"></i>
+            </div>
+        </div>
+
+        <div class="profile">
+            <h2 class="foun-name">Fatimah</h2>
+            <h5 class="foun-major">Software Engineer</h5>
+            <p class="foun-job">UI/UX designer | Front-end Developer</p>
+            <div class="pro-links">
+                <i class="fa-brands fa-linkedin" style="color: #543786;"></i>
+            </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- Freatures2 section start -->
+    <!-- <section class="features">
+        <h1 class="feature-title">Awesome Features</h1>
+        <p class="feature-title-p">Three great features in one site</p>
+        <div class="fea-base">
+            <div class="fea-box">
+                <i class="fa-solid fa-chalkboard-user" style="color: #543786;"></i>
+                <h3>Traditional Features</h3>
+                <p>The platform will have key features like user management, course creation, enrollment, content organization, and analytics, ensuring effective content delivery.</p>
+            </div>
+
+            <div class="fea-box">
+                <i class="fa-solid fa-robot" style="color: #543786;"></i>
+                <h3>AI-Based Features</h3>
+                <p>The project will integrate artificial intelligence (AI) capabilities 
+                    to enhance content, quiz creation, and provide a personalized learning experience.</p>
+            </div>
+
+            <div class="fea-box">
+                <i class="fa-solid fa-headphones" style="color: #543786;"></i>
+                <h3>Multimodal Interaction Features</h3>
+                <p>The platform will support multimodal capabilities, 
+                    including text-to-speech (TTS), speech-to-text (STT), voice recognition, and more.</p>
+            </div>
+
+            <div class="fea-box">
+                <i class="fa-solid fa-headphones" style="color: #543786;"></i>
+                <h3>Multimodal Interaction Features</h3>
+                <p>The platform will support multimodal capabilities, 
+                    including text-to-speech (TTS), speech-to-text (STT), voice recognition, and more.</p>
+            </div>
+        </div>
+    </section> -->
+
+
+    <!-- start Our Vision section -->
+    <!-- <setion class="about" id="about">
+        <div class="about-text">
+            <h2>Our Vision</h2>
+            <p>Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology, offering a dynamic learning environment enhanced by sophisticated multimodal interaction capabilities.
+                Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology,</p>
+           </div>
+           <div class="about-img">
+            <img src="h2.jpg" alt="about-img">
+        </div>
+    </setion> -->
+
+    <!-- start Our message section -->
+    <!-- <setion class="about" id="about">
     </div>
-</section> -->
+    <div class="about-img">
+     <img src="h2.jpg" alt="about-img">
+    </div>
+        <div class="about-text">
+            <h2>Our Message</h2>
+            <p>Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology, offering a dynamic learning environment enhanced by sophisticated multimodal interaction capabilities.
+                Mindscape Academy seamlessly merges conventional teaching methods with cutting-edge AI technology,</p>
+    </setion> -->
 
-</div>
-<!-- Footer -->
-<footer class="bg-white text-center text-gray-600 py-4 shadow">
-    © 2023 Mindscape Academy
-  </footer>
-<!-- main wrapper end -->
 
-
-    <!-- JavaScript code -->
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Function to toggle course favorite state
-        function toggleFavorite(element) {
-          const icon = element.querySelector('i');
-          const isFavorited = icon.classList.contains('fas');
-          if (isFavorited) {
-            // Remove from favorites
-            icon.classList.remove('fas');
-            icon.classList.add('far');
-          } else {
-            // Add to favorites
-            icon.classList.remove('far');
-            icon.classList.add('fas');
-          }
-          // Update local storage (Consider implementation based on course ID or similar)
-        }
-      </script>
+    <!-- cstom js link -->
+    <script  src="js/js.js"></script>
+   
 </body>
 </html>
