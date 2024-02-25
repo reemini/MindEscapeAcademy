@@ -12,6 +12,7 @@
         /* Custom CSS */
 body{
     background-color: rgb(224, 230, 240);
+    
 }
 .course-creation-section {
     display: flex; /* Use flexbox layout */
@@ -62,7 +63,7 @@ body{
 
 .container2 button[type="submit"] {
     width: 100%; /* Make submit button full width */
-    background-color: rgb(255, 183, 0); /* Button background color */
+    background-color: rgb(70, 189, 244); /* Button background color */
     color: #fff; /* Button text color */
     padding: 12px 24px; /* Add padding */
     border: none; /* Remove border */
@@ -121,24 +122,18 @@ body{
         theme: 'snow' // Specify theme, 'snow' is one of the built-in themes
     });
 
-    // Listen for form submission
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('form').addEventListener('submit', function(event) {
-            // Get Quill's HTML content
-            var descriptionHtml = document.querySelector('.ql-editor').innerHTML;
+  // Listen for form submission
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('form').addEventListener('submit', function(event) {
+        // Get Quill's HTML content
+        var descriptionHtml = document.querySelector('.ql-editor').innerHTML;
 
-            // Create a temporary div element to extract text content
-            var tempDiv = document.createElement('div');
-            tempDiv.innerHTML = descriptionHtml;
-
-            // Get the plain text content from the temporary div
-            var descriptionPlainText = tempDiv.textContent || tempDiv.innerText;
-
-            // Set the plain text content to the hidden input field
-            var descriptionTextArea = document.querySelector('textarea[name="description"]');
-            descriptionTextArea.value = descriptionPlainText.trim();
-        });
+        // Set the HTML content to the hidden input field
+        var descriptionTextArea = document.querySelector('textarea[name="description"]');
+        descriptionTextArea.value = descriptionHtml;
     });
+});
+
 </script>
 
 
