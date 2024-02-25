@@ -92,6 +92,7 @@ form {
   position: relative;
   margin: 1rem 0;
   display: flex;
+  align-items: center;
 }
 
 form label {
@@ -157,6 +158,27 @@ form button:hover {
   background-color: #543786;
 }
 
+#label1 {
+  padding: 0.5rem 1rem;
+  text-align: center;
+  display: block;
+  width: 100px;
+  background: #543786;
+  color: #f3f4f6;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative; /* Add position relative to the parent */
+  margin-top: -30px;
+  margin-left: 30px;
+}
+
+.input1 {
+  position: absolute; /* Position the input button absolutely */
+  opacity: 0; /* Hide the original input button */
+  width: 100%; /* Match the width of the label */
+  height: 100%; /* Match the height of the label */
+  cursor: pointer;
+}
 
 @media (max-width: 788px) {
   .container {
