@@ -1,95 +1,92 @@
 {% block content %}
 {% load static %}
 
-  <title>Registeration page</title>
-  <link rel="stylesheet" href="{% static 'page/css/signup style.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-  <div class="container">
-    <div class="container__left">
-      <h1> WELCOME to Mindscape Academy!</h1>
-      <p>
-        Elevate your learning journey with innovative techniques
-        revolutionizing your educational experience.
-      </p>
-      <img src="{% static 'images/signup.png' %}" alt="this is the sign-up page" />
-    </div>
-    <div class="container__right">
-      <div class="content">
-        <img class="logo-remove" src="{% static 'images/logo-remove.png' %}" alt="logo" />
-        <p class="header">Create an Account</p>
-        <form>
-          <div class="input__group">
-            <input type="text" required /> 
-            <label for="username">Username or Email</label>
-          </div>
-          <div class="input__group">
-            <input type="password" id="passwordInput" required /> 
-            <label for="password">Password</label>
-            <i id="togglePasswordIcon" class="fas fa-eye-slash" onclick="togglePasswordVisibility()"></i>
-          </div>  
-          <div class="input__group">
-            <input type="text" required /> 
-            <label for="fullName">Full Name</label>
-          </div>
-          <div class="input__group">
-            <input type="number" required /> 
-            <label for="age">Age</label>
-          </div>
-          <div class="input__group">
-            <select required>
-              <option value="" disabled selected>Select Role</option>
-              <option value="student">Student</option>
-              <option value="teacher">Teacher</option>
-              <option value="parent">Parent</option>
-            </select>
-            <label for="role">Role</label>
-          </div>
-          <div class="input__group">
-            <select required>
-              <option value="" disabled selected>Select Grade/Class Level</option>
-              <option value="grade1">Grade 1</option>
-              <option value="grade2">Grade 2</option>
-              <!-- Add more options as needed -->
-            </select>
-            <label for="gradeLevel">Grade/Class Level</label>
-          </div>
-          <div class="input__group">
-            <input type="text" required /> 
-            <label for="fieldOfStudy">Field of Study</label>
-          </div>
-          <div class="input__group">
-            <input type="text" required /> 
-            <label for="school">Institution/School</label>
-          </div>
-          <div class="input__group">
-            <input type="file" id="profileImage" accept="image/*" required />
-            <label for="profileImage">Profile Image</label>
-            <button type="button">Upload</button>
-          </div>
-          <button>Sign Up</button><br>
-          <p class="create__account">
-            Already have an account? <a href="{% url 'login' %}">Sign In</a>
-          </p>
-        </form>
-      </div>
+<title>Registration page</title>
+<link rel="stylesheet" href="{% static 'page/css/signup style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="container">
+  <div class="container__left">
+    <h1> WELCOME to Mindscape Academy!</h1>
+    <p>
+      Elevate your learning journey with innovative techniques
+      revolutionizing your educational experience.
+    </p>
+    <img src="{% static 'images/signup.png' %}" alt="this is the sign-up page" />
+  </div>
+  <div class="container__right">
+    <div class="content">
+      <img class="logo-remove" src="{% static 'images/logo-remove.png' %}" alt="logo" />
+      <p class="header">Create an Account</p>
+      <form>
+        <div class="input__group">
+          <input type="text" required /> 
+          <label for="username">Username or Email</label>
+        </div>
+        <div class="input__group">
+          <input type="password" id="passwordInput" required /> 
+          <label for="password">Password</label>
+          <i id="togglePasswordIcon" class="fas fa-eye-slash" onclick="togglePasswordVisibility()"></i>
+        </div>  
+        <div class="input__group">
+          <input type="text" required /> 
+          <label for="fullName">Full Name</label>
+        </div>
+        <div class="input__group">
+          <input type="number" required /> 
+          <label for="age">Age</label>
+        </div>
+        <div class="input__group">
+          <select required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="student">Student</option>
+            <option value="teacher">Teacher</option>
+            <option value="parent">Parent</option>
+          </select>
+          <label for="role">Role</label>
+        </div>
+        <div class="input__group">
+          <select required>
+            <option value="" disabled selected>Select Grade/Class Level</option>
+            <option value="grade1">Grade 1</option>
+            <option value="grade2">Grade 2</option>
+            <!-- Add more options as needed -->
+          </select>
+          <label for="gradeLevel">Grade/Class Level</label>
+        </div>
+        <div class="input__group">
+          <input type="text" required /> 
+          <label for="fieldOfStudy">Field of Study</label>
+        </div>
+        <div class="input__group">
+          <input type="text" required /> 
+          <label for="school">Institution/School</label>
+        </div>
+
+        <button>Sign Up</button><br>
+        <p class="create__account">
+          Already have an account? <a href="{% url 'login' %}">Sign In</a>
+        </p>
+      </form>
     </div>
   </div>
-  <script>
-    function togglePasswordVisibility() {
-      var passwordInput = document.getElementById("passwordInput");
-      var togglePasswordIcon = document.getElementById("togglePasswordIcon");
+</div>
+<script>
+ 
+  function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("passwordInput");
+    var togglePasswordIcon = document.getElementById("togglePasswordIcon");
 
-      if (passwordInput.type === "password") {
-        passwordInput.type = "text";
-        togglePasswordIcon.classList.remove("fa-eye-slash");
-        togglePasswordIcon.classList.add("fa-eye");
-      } else {
-        passwordInput.type = "password";
-        togglePasswordIcon.classList.remove("fa-eye");
-        togglePasswordIcon.classList.add("fa-eye-slash");
-      }
+    if (passwordInput.type === "password") {
+      passwordInput.type = "text";
+      togglePasswordIcon.classList.remove("fa-eye-slash");
+      togglePasswordIcon.classList.add("fa-eye");
+    } else {
+      passwordInput.type = "password";
+      togglePasswordIcon.classList.remove("fa-eye");
+      togglePasswordIcon.classList.add("fa-eye-slash");
     }
-  </script>
+  }
+</script>
 
 {% endblock %}

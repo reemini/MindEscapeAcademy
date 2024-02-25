@@ -80,7 +80,7 @@ body {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: 500;
-  color: var(--secondary-color);
+  color: black;
   text-align: center;
 }
 
@@ -157,24 +157,6 @@ form button:hover {
   background-color: #543786;
 }
 
-.input__group button {
-  background-color: #543786;
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-
-.create__account {
-  color: var(--secondary-color);
-  text-align: center;
-}
-
-.create__account a {
-  color: var(--primary-color);
-}
 
 @media (max-width: 788px) {
   .container {

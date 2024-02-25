@@ -106,7 +106,7 @@ form {
   position: relative;
   margin: 0.5rem 0;
   display: flex;
-  margin-top: 6px;
+  margin-top: 4px;
   margin-left: 16px;
 }
 
@@ -120,7 +120,7 @@ form {
 .remember-me {
   display: flex;
   margin-left: -15px;
-  margin-top: -37px;
+  margin-top: -32px;
 }
 
 .remember-me input[type="checkbox"] {
