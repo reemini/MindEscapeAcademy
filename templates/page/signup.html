@@ -18,7 +18,7 @@
     <div class="content">
       <img class="logo-remove" src="{% static 'images/logo-remove.png' %}" alt="logo" />
       <p class="header">Create an Account</p>
-      <form>
+      <form onsubmit="openPopup(); return false;">
         <div class="input__group">
           <input type="text" required /> 
           <label for="username">Username or Email</label>
@@ -67,7 +67,17 @@
         <div class="input__group">
           <p class="profile-label">Profile Image</p>
           <label for="inputfile" id="label1">Upload</label> <!-- Button label -->
-          <input class="input1" type="file" id="inputfile" accept="image/*" /> <!-- Button input -->
+          <input class="input1" type="file" id="inputfile" accept="image/*" onchange="displayFileName()" /> <!-- Button input -->
+          <span id="file-name"></span> <!-- Display file name here -->
+        </div>
+
+        <div class="popup-overlay" id="popup">
+          <div class="popup">
+            <h2>POP-UP Message</h2>
+            <p>THANK YOU<br>We are Happy for having you here<br>we will review your account information<br>and process your request<br>to assign you for your role<br>we will notify you soon via email , Stay Tuned .....</p>
+            <button class="ok-button" onclick="closePopup()">Ok</button>
+            <span class="cancel-button" onclick="closePopup()">✖</span>
+          </div>
         </div>
 
         <button>Sign Up</button><br>
@@ -79,7 +89,6 @@
   </div>
 </div>
 <script>
- 
   function togglePasswordVisibility() {
     var passwordInput = document.getElementById("passwordInput");
     var togglePasswordIcon = document.getElementById("togglePasswordIcon");
@@ -94,6 +103,23 @@
       togglePasswordIcon.classList.add("fa-eye-slash");
     }
   }
+
+  function displayFileName() {
+    var input = document.getElementById('inputfile');
+    var fileName = input.files[0].name;
+    document.getElementById('file-name').textContent = fileName;
+  }
+
+  // Modify this JavaScript to handle opening and closing the pop-up
+  function openPopup() {
+    // Validation code to ensure all necessary fields are filled out can be added here
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
 </script>
 
 {% endblock %}
