@@ -6,6 +6,7 @@ urlpatterns = [
     path ('login',views.login, name = 'login'),
     path ('courseinfo',views.courseinfo, name = 'courseinfo'),
     path ('header',views.header, name = 'header'),
+    path ('forgetpass',views.forgetpass, name = 'forgetpass'),
 
 
 

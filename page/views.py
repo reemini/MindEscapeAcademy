@@ -12,3 +12,6 @@ def courseinfo(request):
 
 def header(request):
     return render(request,'part/header.html')
+
+def forgetpass(request):
+    return render(request, 'page/forgetpass.html')
